@@ -1,0 +1,26 @@
+#! /bin/sh
+
+read -p "Please input project name:" name
+
+_my_name=`basename $0`
+if [ "`echo $0 | cut -c1`" = "/" ]; then
+  _my_path=`dirname $0`
+else
+  _my_path=`pwd`/`echo $0 | sed -e s/$_my_name//`
+fi
+
+tools_dir=`dirname $_my_path`
+
+cp -r $tools_dir/java-web-template .
+perl -pi -e "s/jar-module/$name/g" java-web-template/settings.gradle
+perl -pi -e "s/war-module/$name-war/g" java-web-template/settings.gradle
+perl -pi -e "s/jar-module/$name/g" java-web-template/war-module/build.gradle
+
+mv java-web-template/jar-module java-web-template/$name
+mv java-web-template/war-module java-web-template/$name-war
+mv java-web-template $name
+
+
+
+
+echo Created java project: $name
