@@ -1,0 +1,2 @@
+#! /bin/sh
+/Applications/IntelliJ\ IDEA\ 12\ CE.app/Contents/MacOS/idea $PWD/*.ipr
