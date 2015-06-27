@@ -1,0 +1,2 @@
+#! /bin/sh
+ssh appadmin@10.99.246.110

@@ -1,0 +1,2 @@
+#! /bin/sh
+ssh a_build@10.38.34.21
